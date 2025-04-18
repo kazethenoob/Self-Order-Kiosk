@@ -25,12 +25,7 @@ SECRET_KEY = 'django-insecure-=bs)r(7_cul20d4bf2z9sry^7gxc2)xx*a&atq90cu1z3gq&)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'https://self-order-kiosk-vr23.onrender.com',
-    'self-order-kiosk-vr23.onrender.com',
-    '*',
-    *
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
