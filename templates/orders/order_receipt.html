@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Receipt{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">Order Receipt</h1>
+    <p class="mb-2">Order Number: <strong>{{ order.order_number }}</strong></p>
+    <p class="mb-4">Date: {{ order.created_at }}</p>
+
+    <table class="w-full mb-4">
+        <thead>
+            <tr>
+                <th class="text-left">Item</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+            <tr>
+                <td class="text-center">{{ item.menu_item.name }}</td>
+                <td class="text-center">{{ item.quantity }}</td>
+                <td class="text-center">€{{ item.menu_item.price }}</td>
+                <td class="text-center">€{{ item.total_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="text-lg font-semibold">Total Price: €{{ total_price }}</p>
+    <p class="text-lg font-semibold">Thank you for your order!</p>
+
+    <div class="my-8 text-center">
+        <a href="{% url 'menu_list' %}" class="mt-4 mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Back to Menu
+        </a>
+    </div>
+</div>
+{% endblock %}
