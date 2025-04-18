@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'https://self-order-kiosk-vr23.onrender.com',
+    'self-order-kiosk-vr23.onrender.com',
+    '*',
+    *
 ]
 
 
